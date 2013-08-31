@@ -157,7 +157,7 @@ public class TheWalls2 extends JavaPlugin
                         + "당신은 해당 명령어를 사용하기 위한 권한이 없습니다!");
                     return true;
                   }
-                else if (args[0].equalsIgnoreCase("leave"))
+                else if (args[0].equalsIgnoreCase("나가기"))
                   {
                     Player player;
                     
