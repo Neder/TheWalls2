@@ -27,9 +27,9 @@ permissions:
     thewalls2.command.thewalls:
         description: "Gives access to the command '/월즈'"
     thewalls2.command.thewalls.join:
-        description: "Gives access to the command '/월즈 들어가기'"
+        description: "Gives access to the command '/월즈 입장'"
     thewalls2.command.thewalls.leave:
-        description: "Gives access to the command '/월즈 나가기'"
+        description: "Gives access to the command '/월즈 퇴장'"
     thewalls2.command.thewalls.team:
         description: "Gives access to the command '/월즈 팀 <1-4>'"
     thewalls2.command.thewalls.start:

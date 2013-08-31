@@ -75,9 +75,9 @@ public class TheWalls2 extends JavaPlugin
                         + ChatColor.RESET + ChatColor.GREEN + " ****");
                     sender.sendMessage(ChatColor.YELLOW + "/월즈"
                         + ChatColor.WHITE + " - TheWalls2 의 도움말 표시");
-                    sender.sendMessage(ChatColor.YELLOW + "/월즈 들어가기"
+                    sender.sendMessage(ChatColor.YELLOW + "/월즈 입장"
                         + ChatColor.WHITE + " - 게임 대기실에 들어가기");
-                    sender.sendMessage(ChatColor.YELLOW + "/월즈 나가기"
+                    sender.sendMessage(ChatColor.YELLOW + "/월즈 퇴장"
                         + ChatColor.WHITE + " - 게임 대기실에서 나가기");
                     sender.sendMessage(ChatColor.YELLOW
                         + "/월즈 팀 <1-4>" + ChatColor.WHITE
@@ -96,7 +96,7 @@ public class TheWalls2 extends JavaPlugin
               }
             else if (args.length == 1)
               {
-                if (args[0].equalsIgnoreCase("들어가기"))
+                if (args[0].equalsIgnoreCase("입장"))
                   {
                     Player player;
                     
@@ -157,7 +157,7 @@ public class TheWalls2 extends JavaPlugin
                         + "당신은 해당 명령어를 사용하기 위한 권한이 없습니다!");
                     return true;
                   }
-                else if (args[0].equalsIgnoreCase("나가기"))
+                else if (args[0].equalsIgnoreCase("퇴장"))
                   {
                     Player player;
                     
@@ -691,7 +691,7 @@ public class TheWalls2 extends JavaPlugin
                 getConfig().set("general.prize", "item");
               }
           }
-        System.out.println("[TheWalls2] Prize mode: "
+        System.out.println("[TheWalls2] 보상 모드: "
             + getConfig().getString("general.prize"));
         playerListener = new TheWalls2PlayerListener(this);
         getServer().getPluginManager().registerEvents(playerListener, this);
