@@ -6,7 +6,7 @@ softdepend: [Vault]
 website: 'http://dev.bukkit.org/server-mods/thewalls2/'
 permissions:
     thewalls2.*:
-        description: "Gives access to everything in TheWalls2"
+        description: "TheWalls2 의 모든 명령어를 엑세스할 수 있습니다"
         default: op
         children:
             thewalls2.default: true
@@ -25,23 +25,23 @@ permissions:
     thewalls2.notify:
         description: "Receive notifications of plugin updates"
     thewalls2.command.thewalls:
-        description: "Gives access to the command '/thewalls'"
+        description: "Gives access to the command '/월즈'"
     thewalls2.command.thewalls.join:
-        description: "Gives access to the command '/thewalls join'"
+        description: "Gives access to the command '/월즈 들어가기'"
     thewalls2.command.thewalls.leave:
-        description: "Gives access to the command '/thewalls leave'"
+        description: "Gives access to the command '/월즈 나가기'"
     thewalls2.command.thewalls.team:
-        description: "Gives access to the command '/thewalls team <1-4>'"
+        description: "Gives access to the command '/월즈 팀 <1-4>'"
     thewalls2.command.thewalls.start:
-        description: "Gives access to the command '/thewalls start'"
+        description: "Gives access to the command '/월즈 시작'"
     thewalls2.command.thewalls.stop:
-        description: "Gives access to the command '/thewalls stop'"
+        description: "Gives access to the command '/월즈 종료'"
     thewalls2.command.thewalls.restoreworld:
-        description: "Gives access to the command '/thewalls restoreworld'"
+        description: "Gives access to the command '/월즈 월드복구'"
 commands:
-    thewalls:
-        description: "Displays TheWalls2 help"
+    월즈:
+        description: "TheWalls2 의 도움말을 표시합니다"
         permission: thewalls2.command.thewalls
         permission-message: "You don't have <permission>"
-        usage: "/thewalls [Sub-Command]"
+        usage: "/월즈 [Sub-Command]"
         aliases: [tw, twalls]

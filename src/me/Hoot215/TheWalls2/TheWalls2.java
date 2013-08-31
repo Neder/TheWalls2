@@ -64,39 +64,39 @@ public class TheWalls2 extends JavaPlugin
     public boolean onCommand (CommandSender sender, Command cmd, String label,
       String[] args)
       {
-        if (cmd.getName().equalsIgnoreCase("thewalls"))
+        if (cmd.getName().equalsIgnoreCase("월즈"))
           {
             if (args.length == 0)
               {
                 if (sender.hasPermission("thewalls2.command.thewalls"))
                   {
                     sender.sendMessage(ChatColor.GREEN + "****"
-                        + ChatColor.BOLD + ChatColor.AQUA + " The Walls 2"
+                        + ChatColor.BOLD + ChatColor.AQUA + " The Walls 2 - 한글화 Neder "
                         + ChatColor.RESET + ChatColor.GREEN + " ****");
-                    sender.sendMessage(ChatColor.YELLOW + "/thewalls"
-                        + ChatColor.WHITE + " - Displays TheWalls2 help");
-                    sender.sendMessage(ChatColor.YELLOW + "/thewalls join"
-                        + ChatColor.WHITE + " - Joins the game queue");
-                    sender.sendMessage(ChatColor.YELLOW + "/thewalls leave"
-                        + ChatColor.WHITE + " - Leaves the game queue");
+                    sender.sendMessage(ChatColor.YELLOW + "/월즈"
+                        + ChatColor.WHITE + " - TheWalls2 의 도움말 표시");
+                    sender.sendMessage(ChatColor.YELLOW + "/월즈 들어가기"
+                        + ChatColor.WHITE + " - 게임 대기실에 들어가기");
+                    sender.sendMessage(ChatColor.YELLOW + "/월즈 나가기"
+                        + ChatColor.WHITE + " - 게임 대기실에서 나가기");
                     sender.sendMessage(ChatColor.YELLOW
-                        + "/thewalls team <1-4>" + ChatColor.WHITE
-                        + " - Joins a team");
-                    sender.sendMessage(ChatColor.RED + "/thewalls start"
-                        + ChatColor.WHITE + " - Starts a game");
-                    sender.sendMessage(ChatColor.RED + "/thewalls stop"
-                        + ChatColor.WHITE + " - Stops a game");
-                    sender.sendMessage(ChatColor.RED + "/thewalls restoreworld"
-                        + ChatColor.WHITE + " - Restores the world");
+                        + "/월즈 팀 <1-4>" + ChatColor.WHITE
+                        + " - 선택한 팀에 들어가기");
+                    sender.sendMessage(ChatColor.RED + "/월즈 시작"
+                        + ChatColor.WHITE + " - 게임 시작하기");
+                    sender.sendMessage(ChatColor.RED + "/월즈 종료"
+                        + ChatColor.WHITE + " - 게임 종료하기");
+                    sender.sendMessage(ChatColor.RED + "/월즈 월드복구"
+                        + ChatColor.WHITE + " - 월드 복구하기");
                     return true;
                   }
                 sender.sendMessage(ChatColor.RED
-                    + "You do not have permission to use that command!");
+                    + "당신은 해당 명령어를 사용하기 위한 권한이 없습니다!");
                 return true;
               }
             else if (args.length == 1)
               {
-                if (args[0].equalsIgnoreCase("join"))
+                if (args[0].equalsIgnoreCase("들어가기"))
                   {
                     Player player;
                     
@@ -107,7 +107,7 @@ public class TheWalls2 extends JavaPlugin
                     else
                       {
                         sender.sendMessage(ChatColor.RED
-                            + "This command can only be run as a player");
+                            + "이 명령어는 게임 안에서만 사용 가능합니다");
                         return true;
                       }
                     
@@ -116,14 +116,14 @@ public class TheWalls2 extends JavaPlugin
                         if (gameList != null)
                           {
                             player.sendMessage(ChatColor.RED
-                                + "A game is already in progress!");
+                                + "현재 게임 중입니다!");
                             return true;
                           }
                         
                         if (TheWalls2World.isRestoring)
                           {
                             player.sendMessage(ChatColor.RED
-                                + "The world is being restored");
+                                + "현재 월드 복구 중입니다");
                             return true;
                           }
                         
@@ -140,21 +140,21 @@ public class TheWalls2 extends JavaPlugin
                                 Teleport.teleportPlayerToLocation(player,
                                     locData.getLobby());
                                 player.sendMessage(ChatColor.GREEN
-                                    + "Successfully joined the game queue!");
+                                    + "게임 대기실에 입장 했습니다!");
                               }
                             else
                               {
                                 player.sendMessage(ChatColor.RED
-                                    + "The game queue is full!");
+                                    + "게임 대기실이 꽉 찼습니다!");
                               }
                             return true;
                           }
                         player.sendMessage(ChatColor.RED
-                            + "You are already in the queue!");
+                            + "이미 게임 대기실에 있습니다!");
                         return true;
                       }
                     player.sendMessage(ChatColor.RED
-                        + "You do not have permission to use that command!");
+                        + "당신은 해당 명령어를 사용하기 위한 권한이 없습니다!");
                     return true;
                   }
                 else if (args[0].equalsIgnoreCase("leave"))
@@ -168,7 +168,7 @@ public class TheWalls2 extends JavaPlugin
                     else
                       {
                         sender.sendMessage(ChatColor.RED
-                            + "This command can only be run as a player");
+                            + "이 명령어는 게임 안에서만 사용 가능합니다");
                         return true;
                       }
                     
@@ -178,7 +178,7 @@ public class TheWalls2 extends JavaPlugin
                         if (gameList != null)
                           {
                             player.sendMessage(ChatColor.RED
-                                + "A game is already in progress!");
+                                + "현재 게임 중입니다!");
                             return true;
                           }
                         String playerName = player.getName();
@@ -195,18 +195,18 @@ public class TheWalls2 extends JavaPlugin
                             player.getInventory().setArmorContents(
                                 inventories.getArmourContents(playerName));
                             player.sendMessage(ChatColor.GREEN
-                                + "Successfully left the queue!");
+                                + "게임 대기실에서 나왔습니다!");
                             return true;
                           }
                         player.sendMessage(ChatColor.RED
-                            + "You are not in the queue!");
+                            + "게임 대기실에 입장하지 않았습니다!");
                         return true;
                       }
                     player.sendMessage(ChatColor.RED
-                        + "You do not have permission to use that command!");
+                        + "당신은 해당 명령어를 사용하기 위한 권한이 없습니다!");
                     return true;
                   }
-                else if (args[0].equalsIgnoreCase("team"))
+                else if (args[0].equalsIgnoreCase("팀"))
                   {
                     Player player;
                     
@@ -217,22 +217,22 @@ public class TheWalls2 extends JavaPlugin
                     else
                       {
                         sender.sendMessage(ChatColor.RED
-                            + "This command can only be run as a player");
+                            + "이 명령어는 게임 안에서만 사용 가능합니다");
                         return true;
                       }
                     
                     if (player.hasPermission("thewalls2.command.thewalls.team"))
                       {
                         sender.sendMessage(ChatColor.YELLOW
-                            + "/thewalls team <1-4>" + ChatColor.WHITE
-                            + " - Joins a team");
+                            + "/월즈 팀 <1-4>" + ChatColor.WHITE
+                            + " - 선택한 팀에 들어가기");
                         return true;
                       }
                     player.sendMessage(ChatColor.RED
-                        + "You do not have permission to use that command!");
+                        + "당신은 해당 명령어를 사용하기 위한 권한이 없습니다!");
                     return true;
                   }
-                else if (args[0].equalsIgnoreCase("start"))
+                else if (args[0].equalsIgnoreCase("시작"))
                   {
                     if (sender
                         .hasPermission("thewalls2.command.thewalls.start"))
@@ -240,46 +240,46 @@ public class TheWalls2 extends JavaPlugin
                         if (gameList != null)
                           {
                             sender.sendMessage(ChatColor.RED
-                                + "A game is already in progress!");
+                                + "현재 게임 중입니다!");
                             return true;
                           }
                         
                         if (TheWalls2World.isRestoring)
                           {
                             sender.sendMessage(ChatColor.RED
-                                + "The world is being restored");
+                                + "현재 월드 복구 중입니다");
                             return true;
                           }
                         
                         if (startGame())
                           {
                             sender.sendMessage(ChatColor.GREEN
-                                + "Game started!");
+                                + "게임이 시작되었습니다!");
                           }
                         else
                           sender.sendMessage(ChatColor.RED
-                              + "There must be at least 2 teams!");
+                              + "최소 2개의 팀이 존재해야 합니다!");
                         return true;
                       }
                     sender.sendMessage(ChatColor.RED
-                        + "You do not have permission to use that command!");
+                        + "당신은 해당 명령어를 사용하기 위한 권한이 없습니다!");
                     return true;
                   }
-                else if (args[0].equalsIgnoreCase("stop"))
+                else if (args[0].equalsIgnoreCase("종료"))
                   {
                     if (sender.hasPermission("thewalls2.command.thewalls.stop"))
                       {
                         if (gameList == null)
                           {
                             sender.sendMessage(ChatColor.RED
-                                + "There is no game currently in progress!");
+                                + "진행 중인 게임이 없습니다!");
                             return true;
                           }
                         
                         if (TheWalls2World.isRestoring)
                           {
                             sender.sendMessage(ChatColor.RED
-                                + "The world is being restored");
+                                + "월드 복구 중입니다");
                             return true;
                           }
                         
@@ -290,51 +290,51 @@ public class TheWalls2 extends JavaPlugin
                         return true;
                       }
                     sender.sendMessage(ChatColor.RED
-                        + "You do not have permission to use that command!");
+                        + "당신은 해당 명령어를 사용하기 위한 권한이 없습니다!");
                     return true;
                   }
-                else if (args[0].equalsIgnoreCase("restoreworld"))
+                else if (args[0].equalsIgnoreCase("월드복구"))
                   {
                     if (sender
                         .hasPermission("thewalls2.command.thewalls.restoreWorld"))
                       {
                         sender.sendMessage(ChatColor.GREEN
-                            + "Restoring world...");
+                            + "월드 복구 중...");
                         restoreBackup();
                         return true;
                       }
                     sender.sendMessage(ChatColor.RED
-                        + "You do not have permission to use that command!");
+                        + "당신은 해당 명령어를 사용하기 위한 권한이 없습니다!");
                     return true;
                   }
-                else if (args[0].equalsIgnoreCase("debug"))
+                else if (args[0].equalsIgnoreCase("디버그"))
                   {
-                    System.out.println("Queue:");
+                    System.out.println("대기실:");
                     for (String s : queue.getList())
                       {
                         System.out.println(s);
                       }
-                    System.out.println("Team1:");
+                    System.out.println("팀 1:");
                     for (String s : teams.getTeam(1))
                       {
                         System.out.println(s);
                       }
-                    System.out.println("Team2:");
+                    System.out.println("팀 2:");
                     for (String s : teams.getTeam(2))
                       {
                         System.out.println(s);
                       }
-                    System.out.println("Team3:");
+                    System.out.println("팀 3:");
                     for (String s : teams.getTeam(3))
                       {
                         System.out.println(s);
                       }
-                    System.out.println("Team4:");
+                    System.out.println("팀 4:");
                     for (String s : teams.getTeam(4))
                       {
                         System.out.println(s);
                       }
-                    System.out.println("GameList:");
+                    System.out.println("게임 목록:");
                     for (String s : gameList.getList())
                       {
                         System.out.println(s);
@@ -345,7 +345,7 @@ public class TheWalls2 extends JavaPlugin
               }
             else if (args.length == 2)
               {
-                if (args[0].equalsIgnoreCase("team"))
+                if (args[0].equalsIgnoreCase("팀"))
                   {
                     Player player;
                     
@@ -356,7 +356,7 @@ public class TheWalls2 extends JavaPlugin
                     else
                       {
                         sender.sendMessage(ChatColor.RED
-                            + "This command can only be run as a player");
+                            + "이 명령어는 게임 안에서만 사용 가능합니다");
                         return true;
                       }
                     
@@ -373,7 +373,7 @@ public class TheWalls2 extends JavaPlugin
                             catch (NumberFormatException e)
                               {
                                 player.sendMessage(ChatColor.RED
-                                    + "ERROR: Expected integer, got string!");
+                                    + "ERROR: 올바른 숫자를 입력하세요!");
                                 return false;
                               }
                             if ( !teams.isInTeam(player.getName()))
@@ -384,16 +384,16 @@ public class TheWalls2 extends JavaPlugin
                                         player.getName()))
                                       {
                                         player.sendMessage(ChatColor.GREEN
-                                            + "Successfully joined team "
+                                            + "성공적으로 들어왔습니다 - 팀 "
                                             + String.valueOf(i) + "!");
                                         return true;
                                       }
                                     player.sendMessage(ChatColor.RED
-                                        + "That team does not exist!");
+                                        + "그런 이름의 팀은 없습니다!");
                                     return true;
                                   }
                                 player.sendMessage(ChatColor.RED
-                                    + "That team does not exist or is full!");
+                                    + "그런 이름의 팀이 존재하지 않거나 꽉 찼습니다!");
                                 return true;
                               }
                             if ( !teams.isTeamFull(i))
@@ -402,24 +402,24 @@ public class TheWalls2 extends JavaPlugin
                                 if (teams.addPlayerToTeam(i, player.getName()))
                                   {
                                     player.sendMessage(ChatColor.GREEN
-                                        + "Successfully switched to team "
+                                        + "성공적으로 팀을 변경하였습니다 - 팀 "
                                         + String.valueOf(i) + "!");
                                     return true;
                                   }
                                 player.sendMessage(ChatColor.RED
-                                    + "That team does not exist!");
+                                    + "그런 이름의 팀은 없습니다!");
                                 return true;
                               }
                             player.sendMessage(ChatColor.RED
-                                + "That team does not exist or is full!");
+                                + "그런 이름의 팀이 존재하지 않거나 꽉 찼습니다!");
                             return true;
                           }
                         player.sendMessage(ChatColor.RED
-                            + "You are not in the queue!");
+                            + "당신은 게임 대기실에 있지 않습니다!");
                         return true;
                       }
                     player.sendMessage(ChatColor.RED
-                        + "You do not have permission to use that command!");
+                        + "당신은 해당 명령어를 사용하기 위한 권한이 없습니다!");
                     return true;
                   }
                 return false;
@@ -445,14 +445,14 @@ public class TheWalls2 extends JavaPlugin
             teleportTeamToGame(t, world);
           }
         
-        gameList.notifyAll("The game has been started!");
+        gameList.notifyAll("게임이 시작되었습니다!");
         
         if (getConfig().getBoolean("game.virtual"))
           {
             boolean notify = getConfig().getBoolean("game.notify");
             int notifyInterval = getConfig().getInt("game.notify-interval");
             int time = getConfig().getInt("game.time");
-            gameList.notifyAll(String.valueOf(time) + " minutes remaining!");
+            gameList.notifyAll(String.valueOf(time) + " 분 남았습니다!");
             getServer().getScheduler().scheduleSyncDelayedTask(this,
                 new Runnable()
                   {
@@ -540,12 +540,12 @@ public class TheWalls2 extends JavaPlugin
             final List<String> finalPlayerList = playerNameList;
             
             getServer().broadcastMessage(
-                ChatColor.YELLOW + "Team " + String.valueOf(firstTeam)
-                    + ChatColor.GREEN + " has won The Walls 2!");
+                ChatColor.YELLOW + "팀 " + String.valueOf(firstTeam)
+                    + ChatColor.GREEN + " 이(가) The Walls 2 에서 승리하였습니다!");
             for (Player player : playerList)
               {
-                player.sendMessage(ChatColor.GOLD + "Congratulations! "
-                    + "You have won The Walls 2!");
+                player.sendMessage(ChatColor.GOLD + "추카합니다! "
+                    + "당신은 The Walls 2 에서 승리하였습니다!");
               }
             
             getServer().getScheduler().scheduleSyncDelayedTask(this,
@@ -642,12 +642,12 @@ public class TheWalls2 extends JavaPlugin
     public void onDisable ()
       {
         // Add-ons
-        System.out.println("[TheWalls2] Unloading add-ons...");
+        System.out.println("[TheWalls2] 애드온 로드 해제 중...");
         addonLoader.unloadAddons();
         
-        System.out.println("[TheWalls2] Unloading world...");
+        System.out.println("[TheWalls2] 월드 로드 해제 중...");
         getServer().unloadWorld(worldName, false);
-        System.out.println(this + " is now disabled!");
+        System.out.println(this + " 비활성화됨!");
       }
     
     @Override
@@ -676,7 +676,7 @@ public class TheWalls2 extends JavaPlugin
             && !prize.equals("none"))
           {
             System.out.println("[TheWalls2] ERROR: "
-                + "general.prize is set to an unknown value!");
+                + "general.prize 가 이상하게 설정되어 있습니다!");
             System.out.println("[TheWalls2] Falling back to item prize!");
             getConfig().set("general.prize", "item");
             saveConfig();
@@ -686,7 +686,7 @@ public class TheWalls2 extends JavaPlugin
             if ( !setupEconomy())
               {
                 System.out.println("[TheWalls2] ERROR: "
-                    + "Vault was not enabled for some reason!");
+                    + "Vault가 어느 요인에 의해 비활성화되었습니다!");
                 System.out.println("[TheWalls2] Falling back to item prize!");
                 getConfig().set("general.prize", "item");
               }
@@ -702,7 +702,7 @@ public class TheWalls2 extends JavaPlugin
           }
         
         // Add-ons
-        System.out.println("[TheWalls2] Loading add-ons...");
+        System.out.println("[TheWalls2] 애드온 로드 중...");
         addonLoader = new AddonLoader();
         addonLoader.loadAddons(new File("plugins/TheWalls2/addons"));
         
@@ -727,6 +727,6 @@ public class TheWalls2 extends JavaPlugin
         autoUpdater = new AutoUpdater(this, new Object(), version);
         new Thread(autoUpdater).start();
         
-        System.out.println(this + " is now enabled!");
+        System.out.println(this + " 활성화됨!");
       }
   }

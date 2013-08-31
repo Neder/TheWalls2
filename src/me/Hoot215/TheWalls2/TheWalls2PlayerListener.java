@@ -63,7 +63,7 @@ public class TheWalls2PlayerListener implements Listener
                   {
                     event.setCancelled(true);
                     player.sendMessage(ChatColor.RED
-                        + "You can't do that until the game starts!");
+                        + "게임이 시작되기 전까진 아무 것도 할 수 없습니다!");
                     return;
                   }
               }
@@ -74,7 +74,7 @@ public class TheWalls2PlayerListener implements Listener
                   {
                     event.setCancelled(true);
                     player
-                        .sendMessage(ChatColor.RED + "Don't break the rules!");
+                        .sendMessage(ChatColor.RED + "규칙을 준수하세요!");
                     return;
                   }
                 for (Location loc : plugin.getLocationData().getSlots())
@@ -106,7 +106,7 @@ public class TheWalls2PlayerListener implements Listener
                   {
                     event.setCancelled(true);
                     player.sendMessage(ChatColor.RED
-                        + "You can't do that until the game starts!");
+                        + "게임이 시작되기 전까진 아무 것도 할 수 없습니다!");
                     return;
                   }
               }
@@ -117,14 +117,14 @@ public class TheWalls2PlayerListener implements Listener
                   {
                     event.setCancelled(true);
                     player
-                        .sendMessage(ChatColor.RED + "Don't break the rules!");
+                        .sendMessage(ChatColor.RED + "규칙을 준수하세요!");
                     return;
                   }
                 if (event.getBlock().getY() > 93)
                   {
                     event.setCancelled(true);
                     player
-                        .sendMessage(ChatColor.RED + "Don't break the rules!");
+                        .sendMessage(ChatColor.RED + "규칙을 준수하세요!");
                     return;
                   }
                 for (Location loc : plugin.getLocationData().getSlots())
@@ -156,7 +156,7 @@ public class TheWalls2PlayerListener implements Listener
                   {
                     event.setCancelled(true);
                     player.sendMessage(ChatColor.RED
-                        + "You can't do that until the game starts!");
+                        + "게임이 시작되기 전까진 아무 것도 할 수 없습니다!");
                   }
               }
             else
@@ -177,15 +177,15 @@ public class TheWalls2PlayerListener implements Listener
                       break;
                     if (count >= 20)
                       {
-                        player.sendMessage(ChatColor.RED + "Either you are "
-                            + "extremely unlucky or there is no one else "
-                            + "playing with you!");
+                        player.sendMessage(ChatColor.RED + "운이 지지리도 없으시군요! "
+                            + "당신과 놀아줄 사람이 "
+                            + "한 사람도 없으니까요 ㅇㅅㅇ");
                         return;
                       }
                     count++;
                   }
                 player.setCompassTarget(randomPlayer.getLocation());
-                player.sendMessage(ChatColor.GREEN + "Random player located!");
+                player.sendMessage(ChatColor.GREEN + "플레이어는 랜덤하게 위치합니다!");
               }
           }
       }
@@ -227,7 +227,7 @@ public class TheWalls2PlayerListener implements Listener
                           }
                         
                         attacker.sendMessage(ChatColor.RED
-                            + "Friendly fire is disabled!");
+                            + "아군을 공격할 수 없습니다!");
                       }
                   }
               }
@@ -250,7 +250,7 @@ public class TheWalls2PlayerListener implements Listener
           {
             plugin.getServer().broadcastMessage(
                 ChatColor.YELLOW + playerName + ChatColor.RED
-                    + " has been defeated in " + "a game of The Walls 2!");
+                    + "The Walls 2" + " 게임에서 졌습니다!");
             gameList.removeFromGame(playerName);
             respawnQueue.addPlayer(playerName,
                 queue.getLastPlayerLocation(playerName));
@@ -282,9 +282,9 @@ public class TheWalls2PlayerListener implements Listener
             int time = plugin.getConfig().getInt("general.disconnect-timer");
             plugin.getServer().broadcastMessage(
                 ChatColor.YELLOW + playerName + ChatColor.RED
-                    + " has disconnected! " + "They have "
+                    + " 님은 연결 해제되었습니다." + "The Walls 2에 재접속을 위해서는 "
                     + String.valueOf(time)
-                    + " seconds to reconnect before they quit The Walls 2");
+                    + " 초 가 필요합니다.");
             plugin.getServer().getScheduler()
                 .scheduleSyncDelayedTask(plugin, new Runnable()
                   {
@@ -356,9 +356,9 @@ public class TheWalls2PlayerListener implements Listener
                                     loc);
                                 futurePlayer.sendMessage(ChatColor.AQUA
                                     + "[TheWalls2] " + ChatColor.GREEN
-                                    + "You have been teleported "
-                                    + "to a fallback world because you "
-                                    + "left while a game was in progress");
+                                    + "진행 중인 게임에서 "
+                                    + "탈주했기 때문에 "
+                                    + "다른 월드로 이동되었습니다");
                               }
                           }, 1L);
                   }
@@ -394,14 +394,14 @@ public class TheWalls2PlayerListener implements Listener
                                   return;
                                 player.sendMessage(ChatColor.AQUA
                                     + "[TheWalls2] " + ChatColor.GREEN
-                                    + "An update is available!");
+                                    + "업데이트가 가능합니다!");
                                 player
                                     .sendMessage(ChatColor.WHITE
-                                        + "http://dev.bukkit.org/server-mods/thewalls2/");
+                                        + "neder@sjwmcs.kr 로 메일을 보내");
                                 player.sendMessage(ChatColor.RED
-                                    + "If you can't find a newer version, "
-                                    + "check in the comments section for a "
-                                    + "Dropbox link");
+                                    + "변경 사항 "
+                                    + "적용을 "
+                                    + "요청하세요");
                               }
                           }, 60L);
                   }

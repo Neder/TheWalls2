@@ -53,7 +53,7 @@ public class TheWalls2Prize
         ItemStack item = new ItemStack(prizeID, prizeAmount, prizeData);
         player.getWorld().dropItem(player.getLocation(), item);
         player.sendMessage(ChatColor.AQUA + "[TheWalls2] " + ChatColor.GREEN
-            + "Here's your prize!");
+            + "보상을 드릴게요!");
       }
     
     public static void giveMoneyPrize (TheWalls2 plugin, Player player)
@@ -61,9 +61,9 @@ public class TheWalls2Prize
         double amount = plugin.getConfig().getDouble("general.prize-money");
         TheWalls2.economy.depositPlayer(player.getName(), amount);
         player.sendMessage(ChatColor.AQUA + "[TheWalls2] " + ChatColor.GREEN
-            + "Here's your prize!");
+            + "보상을 드릴게요!");
         player.sendMessage(ChatColor.AQUA + "[TheWalls2] " + ChatColor.GOLD
             + TheWalls2.economy.format(amount) + ChatColor.GREEN
-            + " has been deposited into your account");
+            + " 만큼이 너님의 이코노미 계정에 지급되었습니다");
       }
   }

@@ -31,7 +31,7 @@ public class TheWalls2World
       {
         plugin.getServer().broadcastMessage(
             ChatColor.AQUA + "[TheWalls2] " + ChatColor.YELLOW
-                + "World is being unloaded...");
+                + "월드가 로드 해제됩니다...");
         isRestoring = true;
         World world = plugin.getServer().getWorld(TheWalls2.worldName);
         for (Player player : world.getPlayers())
@@ -39,16 +39,16 @@ public class TheWalls2World
             if (player == null)
               break;
             
-            player.kickPlayer("[TheWalls2] You can't be in the world when "
-                + "it unloads! Please re-join in a few seconds.");
+            player.kickPlayer("[TheWalls2] 월드가 로드 해제 상태일때는 "
+                + "들어갈 수 없습니다! 몇 초 뒤 들어가세요.");
           }
         for (Player player : plugin.getRespawnQueue().getPlayerList())
           {
             if (player == null)
               break;
             
-            player.kickPlayer("[TheWalls2] You can't be in the world when "
-                + "it unloads! Please re-join in a few seconds.");
+            player.kickPlayer("[TheWalls2] 월드가 로드 해제 상태일때는 "
+                + "들어갈 수 없습니다! 몇 초 뒤 들어가세요.");
           }
         
         world.getPlayers().clear();
@@ -57,7 +57,7 @@ public class TheWalls2World
           {
             plugin.getServer().broadcastMessage(
                 ChatColor.AQUA + "[TheWalls2] " + ChatColor.YELLOW
-                    + "World is being loaded...");
+                    + "월드가 로드 해제됩니다...");
             WorldCreator wc = new WorldCreator(TheWalls2.worldName);
             World newWorld = plugin.getServer().createWorld(wc);
             newWorld.setAutoSave(false);
@@ -82,7 +82,7 @@ public class TheWalls2World
                         else
                           {
                             System.out.println("[TheWalls2] "
-                                + "The world failed to unload!");
+                                + "월드 로드 해제 실패!");
                           }
                         isRestoring = false;
                       }

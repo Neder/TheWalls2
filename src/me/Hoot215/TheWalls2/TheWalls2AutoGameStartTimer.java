@@ -52,7 +52,7 @@ public class TheWalls2AutoGameStartTimer implements Runnable
                     if (gameList == null && !TheWalls2World.isRestoring
                         && plugin.startGame())
                       System.out
-                          .println("[TheWalls2] Game started automatically");
+                          .println("[TheWalls2] 게임이 자동적으로 시작되었습니다");
                   }
               });
         
@@ -76,7 +76,7 @@ public class TheWalls2AutoGameStartTimer implements Runnable
                         if (gameList == null && !TheWalls2World.isRestoring
                             && plugin.startGame())
                           System.out
-                              .println("[TheWalls2] Game started automatically");
+                              .println("[TheWalls2] 게임이 자동적으로 시작되었습니다");
                       }
                   });
           }

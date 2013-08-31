@@ -54,7 +54,7 @@ public class TheWalls2GameTimer implements Runnable
                         public void run ()
                           {
                             plugin.getGameList().notifyAll(
-                                String.valueOf(time) + " minutes remaining!");
+                                String.valueOf(time) + " 분 남았습니다!");
                             time = time - 1;
                           }
                       });
